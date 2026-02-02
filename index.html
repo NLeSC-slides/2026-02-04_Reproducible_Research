@@ -107,7 +107,7 @@
               </textarea>
             </section>
 
-            <section data-state="standard">
+            <section data-state="standard scroll">
               <h2>Many, <em>Many</em> Tools Wanting to Help</h2>
               <div id="scrollContainer" style="height: 40vh; overflow: hidden;">
                 <div style="will-change: transform; position: relative;" id="scrollContent">
@@ -130,41 +130,6 @@
                   </ul>
                 </div>
               </div>
-              <script>
-                const list = document.getElementById("scrollList");
-                const content = document.getElementById("scrollContent");
-
-                // Duplicate list a few times to fudge infinite scroll
-                list.innerHTML += list.innerHTML;
-                list.innerHTML += list.innerHTML;
-                list.innerHTML += list.innerHTML;
-                list.innerHTML += list.innerHTML;
-
-                let y = 0;
-                const speed = 0.6; // px per frame
-                let loopHeight = 0;
-
-                function start() {
-                  // Measure after layout is complete
-                  loopHeight = list.offsetHeight;
-
-                  function animate() {
-                    y += speed;
-
-                    if (y >= loopHeight) {
-                      y = 0;
-                    }
-
-                    content.style.transform = `translateY(-${y}px)`;
-                    requestAnimationFrame(animate);
-                  }
-
-                  animate();
-                }
-
-                // Ensure layout is ready in all browsers
-                window.addEventListener("load", start);
-              </script>
             </section>
 
             <section data-state="standard" data-markdown>
@@ -395,6 +360,63 @@
 
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, Escience ]
+      });
+
+      // auto-scrolling
+      let animationId = null;
+      let running = false;
+
+      const list = document.getElementById("scrollList");
+      const content = document.getElementById("scrollContent");
+
+      // Duplicate list a few times to fudge infinite scroll
+      list.innerHTML += list.innerHTML;
+      list.innerHTML += list.innerHTML;
+      list.innerHTML += list.innerHTML;
+      list.innerHTML += list.innerHTML;
+
+      let y = 0;
+      const speed = 0.1; // px per frame
+      let loopHeight = 0;
+
+      function start_scrolling() {
+        if (running) return; // prevent duplicates
+        running = true;
+
+        // Measure after layout is complete
+        loopHeight = list.offsetHeight;
+
+        function animate() {
+          if (!running) return;
+          y += speed;
+
+          if (y >= loopHeight) {
+            y = 0;
+          }
+
+          content.style.transform = `translateY(-${y}px)`;
+          animationId = requestAnimationFrame(animate);
+        }
+
+        animate();
+      }
+
+      function stop_scrolling() {
+        running = false;
+        if (animationId) {
+          cancelAnimationFrame(animationId);
+          animationId = null;
+          console.log("stop scrolling");
+        }
+      }
+
+      Reveal.on('slidechanged', event => {
+        if (event.currentSlide.getAttribute('data-state').includes('scroll')) {
+          start_scrolling();
+          console.log("start scrolling");
+        } else {
+          stop_scrolling();
+        }
       });
     </script>
   </body>
