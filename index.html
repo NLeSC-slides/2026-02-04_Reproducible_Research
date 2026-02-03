@@ -223,7 +223,7 @@
 
                 - Define dependencies + versions
                 - Install those dependencies
-                - Record their versions
+                - Record dependencies' versions (all the way down)
                 - Isolate environments
                 - Manage Python/R versions
                 - Enable sharing packages
@@ -232,15 +232,14 @@
 
             <section data-state="standard 10" data-markdown>
               <textarea data-template>
-                ## [Challenge](https://carpentries-incubator.github.io/reproducible-research-through-reusable-code-in-1-day/software-dependencies.html#tools-and-what-problems-they-try-to-solve)
+                ## Challenge: Time-Capsule of Dependencies
 
-                <p class="fragment">(see collaborative doc)</p>
-                <p class="fragment">(hey, don't peek at the solution!)</p>
+                <p>(see collaborative doc)</p>
               </textarea>
             </section>
 
             <section data-state="standard 10">
-              <h2>A Time-Capsule for the Future</h2>
+              <h2>A Time-Capsule for the <em>Future</em></h2>
 
               <div style="width: 49%; float: left;">
                 <h3>Python</h3>
@@ -515,6 +514,7 @@
               <ul>
                 <li>Follow style guides without altering functionality</li>
                 <li>Increase readability and reduce chance for merge conflicts</li>
+                <li>Can fix issues, if requested</li>
               </ul>
             </section>
 
@@ -526,7 +526,7 @@
 
                 - Check for errors, complexity, unused code, or performance bottlenecks
                 - More heavy-handed than formatters
-                - Can fix most issues, if requested
+                - Can fix _most_ issues, if requested
 
               </textarea>
             </section>
@@ -576,6 +576,7 @@
 
                 - Coding conventions help you create more readable code that is easier to reuse and contribute to.
                 - Consistently formatted code including descriptive variable and function names is easier to read and write.
+                - Linted code is easier to understand and can be faster
               </textarea>
             </section>
           </section> <!-- end of Modular Coding -->
@@ -652,20 +653,24 @@
 
                 - A "pure" function is not influenced by forces outside of it
                 - They _always_ work the same, easy to understand and test
-                - Impurities can be accidental:
+                - "Impurities" can be accidental:
 
                 ```python
                 >>> def append(x, lst=[]):
                 ...     lst.append(x)
                 ...     return lst
-                ...
+                ```
+                ```python
                 >>> append(1)
                 [1]
+                ```
+                ```python
                 >>> append(2)
                 [1, 2]  # default list shared accross calls! ☠️
                 ```
+                <!-- .element: class="fragment" -->
 
-                  *Try to keep impure functions short!*
+                *Try to keep impure functions short!* <!-- .element: class="fragment" -->
               </textarea>
             </section>
 
@@ -676,7 +681,7 @@
                 Good functions...
 
                 - perform limited and clearly defined tasks
-                - are pure and predictable (if possible)
+                - are pure (if possible) and predictable
                 - are readable and understandable
                   - explicit is better than clever!
                 - have a good name.
@@ -856,7 +861,7 @@
                 - Add a [`CITATION.cff` file](https://citation-file-format.github.io/cff-initializer-javascript/#/)
                 - [Publish your project](https://zenodo.org/login/?next=%2Faccount%2Fsettings%2Fgithub%2F) to Zenodo
 
-                *You will probably not be able to finish the list. Instead, try to work on each item a bit to see which steps are involved.*
+                *You will probably not be able to finish the list. Instead, try to work on each item a bit to learn the steps involved.*
               </textarea>
             </section>
           </section> <!-- end of Work on Your Own Project -->
