@@ -463,11 +463,10 @@
 
           </section> <!-- end of Software Documentation -->
 
-          <section> <!-- start of Code Conventions and Modular Coding -->
+          <section> <!-- start of Code Conventions-->
             <section data-state="standard" data-markdown>
               <textarea data-template>
                 # Coding Conventions
-                ## ... and Modular Coding
               </textarea>
             </section>
 
@@ -516,15 +515,244 @@
 
                 Install and use a formatter and a linter to improve the style of your code.
 
+(see collaborative doc)
+              </textarea>
+            </section>
 
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## (Optional) Challenge:<br>Git Pre-Commit Hooks
 
-                - Check for errors, complexity, unused code, or performance bottlenecks
-                - More heavy-handed than formatters
-                - Can fix most issues, if requested
+                Apply formatting and linting before any commit.
+
+                [Carpentries: Pre-Commit Hooks](https://carpentries-incubator.github.io/reproducible-research-through-reusable-code-in-1-day/good-code.html#optional-git-pre-commit-hooks)
+
+(see collaborative doc)
+              </textarea>
+            </section>
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## Further Reading: CI/CD
+
+                - Let the robot overlords take over 🤖
+                - Execute commands on GitHub with every push
+                  - e.g. formatters & linters
+                - GitHub: [GitHub Actions](https://docs.github.com/en/actions)
+                - GitLab: [CI/CD](https://docs.gitlab.com/ci/)
+                - Python: [`ruff` integrations](https://docs.astral.sh/ruff/integrations/)
+                - R: use [`usethis`](https://usethis.r-lib.org/reference/use_github_action.html) for ...
+                  - [`lintr` integration](https://github.com/r-lib/lintr/?tab=readme-ov-file#setting-up-github-actions) and
+                  - [`styler` integration](https://github.com/r-lib/actions/tree/v2-branch/examples#style-package)
 
               </textarea>
             </section>
-          </section> <!-- end of Code Conventions and Modular Coding -->
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## Take-Away
+
+                - Coding conventions help you create more readable code that is easier to reuse and contribute to.
+                - Consistently formatted code including descriptive variable and function names is easier to read and write.
+              </textarea>
+            </section>
+          </section> <!-- end of Modular Coding -->
+
+          <section> <!-- start of Code Conventions-->
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                # Modular Coding
+              </textarea>
+            </section>
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## What is Modularity?
+
+                Simple components combined to produce complex behavior.
+
+                - Software can be 'built up' from smaller elements.
+                - Elements are self-contained and independent.
+                - Each element handles a specific (set of) task(s).
+
+                <img src="./files/modern_times.jpg">
+                <p style="font-size: small;">Charlie Chaplin in Modern Times (1936).
+                © Roy Export Company Establishment; photograph, the Museum of Modern Art/Film Stills Archive, New York City</p>
+              </textarea>
+            </section>
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## Modular Code
+
+                <img style="width: 30%; float: left; margin: 1%;" src="./files/small_cohesive_units.png">
+                <img style="width: 30%; float: left; margin: 1%;" src="./files/customized_bohemoth.png">
+
+                <ul style="width: 25%; float: right;">
+
+                  <li class="fragment grow">Functions</li>
+                  <li>Classes</li>
+                  <li>Modules</li>
+                  <li>Libraries</li>
+                  <li>Packages</li>
+                  <li>Programs</li>
+                  <li>...</li>
+                </ul>
+              </textarea>
+            </section>
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## Functions
+
+                - Increase readability
+                  - Give it an expressive name, avoid abbreviations
+                - Create/change code _once_, use it in multiple places
+                - Re-use code in other projects
+                - Simplify testing
+                - Save time!
+
+              </textarea>
+            </section>
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## Functions Save Time
+
+                <img style="height: 40vh;" src="./files/development-speed.svg">
+
+              </textarea>
+            </section>
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## Purity
+
+                - A "pure" function is not influenced by forces outside of it
+                - They _always_ work the same, easy to understand and test
+                - Impurities can be accidental:
+
+                ```python
+                >>> def append(x, lst=[]):
+                ...     lst.append(x)
+                ...     return lst
+                ...
+                >>> append(1)
+                [1]
+                >>> append(2)
+                [1, 2]  # default list shared accross calls! ☠️
+                ```
+
+                  *Try to keep impure functions short!*
+              </textarea>
+            </section>
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## Best Practices
+
+                Good functions...
+
+                - perform limited and clearly defined tasks
+                - are pure and predictable (if possible)
+                - are readable and understandable
+                  - explicit is better than clever!
+                - have a good name.
+              </textarea>
+            </section>
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## Defining a Function
+
+                <pre style="width: fit-content; float: left; font-size: 47%;"><code data-trim class="language-python">
+                  def my_function(parameters):
+                      # perform action
+                      # return value
+
+
+                  def fahr_to_kelvin(temp):
+                    kelvin = ((temp - 32) * (5 / 9)) + 273.15
+                    return kelvin
+                  &nbsp;
+                </code></pre>
+
+                <pre style="width: fit-content; float: right; font-size: 47%;"><code data-trim class="language-r">
+                  my_function <- function(parameters) {
+                    # perform action
+                    # return value
+                  }
+
+                  fahr_to_kelvin <- function(temp) {
+                    kelvin <- ((temp - 32) * (5 / 9)) + 273.15
+                    return(kelvin)
+                  }
+                </code></pre>
+
+                <pre class="fragment" style="width: 100%; font-size: 47%; float: left; margin-left: auto;"><code data-trim class="language-python">
+                  # freezing point of water
+                  fahr_to_kelvin(32)  # 273.15
+
+                  # boiling point of water
+                  fahr_to_kelvin(212)  # 373.15
+                </code></pre>
+
+              </textarea>
+            </section>
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## Challenge: Identify Code That Can Be Put in a Function
+
+                Indicators:
+                - Repeating code
+                - Deeply nested code
+                - Code with poor readability
+                - [Create an issue in your project](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue)<br>for each possible function that you find
+              </textarea>
+            </section>
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## (Optional) Challenges
+
+                - Modularity in Python
+                - Writing Good Functions in R
+
+                (see collaborative doc)
+              </textarea>
+            </section>
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## Challenge: Combining Functions
+
+                The real power of functions comes from mixing, matching and combining them into ever-larger chunks to get the effect we want.
+
+                (see collaborative doc)
+              </textarea>
+            </section>
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ### Further Reading
+
+                - [Modular Code Development](https://esciencecenter-digital-skills.github.io/good-practices-lesson/1-modular-code.html) from Good practices in research software development
+                - [Functions explained](https://swcarpentry.github.io/r-novice-gapminder/10-functions.html) from R for Reproducible Scientific Analysis Software Carpentry lesson
+                - [Functions chapter](https://r4ds.hadley.nz/functions) from R for Data Science (2e)
+              </textarea>
+            </section>
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## Take-Away
+
+                - Software is built from smaller, self-contained elements, each handling specific tasks.
+                - Modular code enhances robustness, readability, and ease of maintenance.
+                - Good functions perform limited, defined tasks and have descriptive names.
+              </textarea>
+            </section>
+          </section> <!-- end of Modular Coding -->
 
           <section> <!-- start of Next Steps: How to make your code reusable -->
             <section data-state="standard">
