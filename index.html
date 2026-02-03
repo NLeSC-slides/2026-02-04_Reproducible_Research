@@ -40,13 +40,13 @@
 
           <section> <!-- start of Introduction -->
             <section data-state="standard">
-              <h2>Introduction</h2>
+              <h1>Introduction</h1>
               <p>Reproducibility: Definitions, Advantages, and Barriers</p>
             </section>
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### What is reproducible research? 
+                ## What is reproducible research? 
 
                 <figure>
                   <img src="files/reproducible-matrix.jpg"
@@ -60,7 +60,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Why should we care about reproducible research? 
+                ## Why should we care about reproducible research? 
 
                 <figure>
                   <img src="files/reasons-reproducibil.png"
@@ -74,7 +74,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Barriers to reproducibility
+                ## Barriers to reproducibility
 
                 - Limited incentives:
                   - Making yourself vulnerable ("plead the fifth")
@@ -93,7 +93,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Where to start
+                ## Where to start
 
                 - Philosophy: Partial reproducibility > no reproducibility!
                 - Small steps: Improve practices from one project to the next
@@ -105,7 +105,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Version control and reproducibility
+                ## Version control and reproducibility
 
                 - Tracks which versions of the code and data led to which results reported in a paper
                 - Tracks a version history to follow changes over time
@@ -118,7 +118,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### This workshop
+                ## This workshop
 
                 - Focus on computational reproducibility and resusable code
                 - Gives you an overview of the most important aspects
@@ -129,7 +129,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Resources
+                ## Resources
 
                 - The Turing Way Community. (2022). <em>The Turing Way: A handbook for reproducible, ethical and collaborative research (1.0.2)</em>. Zenodo. https://zenodo.org/records/7625728
                 
@@ -310,13 +310,13 @@
 
           <section> <!-- start of Software Documentation -->
             <section data-state="standard">
-              <h2>Software Documentation</h2>
+              <h1>Software Documentation</h1>
               <p>How to make software easier to understand</p>
             </section>
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Writing good README files
+                ## Writing good README files
 
                 - First landing page for other developers/users
                 - On GitHub/GitLab/CRAN or attached to the software
@@ -330,7 +330,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Structure of a good README
+                ## Structure of a good README
 
                 - Descriptive title
                 - Motivation (why?)
@@ -345,7 +345,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### In-code documentation
+                ## In-code documentation
 
                 - Helps the reader understand the code
                 - Explains development decisions we make
@@ -358,7 +358,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Readable vs. commented code
+                ## Readable vs. commented code
 
                 ```python
                 # convert from degrees celsius to fahrenheit
@@ -378,43 +378,44 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Docstrings
+                ## Docstrings
 
                 Using regular comments:
 
-                ```python
-                # This function converts a temperature in Fahrenheit to Celsius.
-                def fahrenheit_to_celsius(temp_f: float) -> float:
-                    temp_c = (temp_f - 32.0) * (5.0/9.0)
-                    return temp_c
-                ```
+                <pre style="width: fit-content; font-size: 50%;"><code data-trim class="language-python">
+                  # This function converts a temperature in Fahrenheit to Celsius.
+                  def fahrenheit_to_celsius(temp_f: float) -> float:
+                      temp_c = (temp_f - 32.0) * (5.0/9.0)
+                      return temp_c
+                </code></pre>
+
 
                 Using docstrings:
 
-                ```python
-                def fahrenheit_to_celsius(temp_f: float) -> float:
-                    """
-                    Converts a temperature in Fahrenheit to Celsius.
+                <pre style="width: fit-content; font-size: 50%;"><code data-trim class="language-python">
+                  def fahrenheit_to_celsius(temp_f: float) -> float:
+                      """
+                      Converts a temperature in Fahrenheit to Celsius.
 
-                    Parameters
-                    ----------
-                    temp_f : float
-                        The temperature in Fahrenheit.
+                      Parameters
+                      ----------
+                      temp_f : float
+                          The temperature in Fahrenheit.
 
-                    Returns
-                    -------
-                    float
-                        The temperature in Celsius.
-                    """
-                    return (temp_f - 32.0) * (5.0/9.0)
-                ```
+                      Returns
+                      -------
+                      float
+                          The temperature in Celsius.
+                      """
+                      return (temp_f - 32.0) * (5.0/9.0)
+                </code></pre>
 
               </textarea>
             </section>
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Docstrings
+                ## Docstrings
 
                 - Automatically generate help text
                 - Automatically generate API documentation
@@ -427,7 +428,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Writing good docstrings
+                ## Writing good docstrings
 
                 - Follow a style (e.g., numpy)
                 - What does an object (e.g., function) do?
@@ -440,7 +441,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Online documentation
+                ## Online documentation
 
                 - Create your API documentation automatically (e.g., using Sphinx or roxygen)
                 - Deploy your documentation automatically to a GitHub page or Read the Docs
@@ -450,7 +451,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Resources
+                ## Resources
 
                 - README guide and template: https://www.makeareadme.com/
                 - Hemingway app: https://hemingwayapp.com/
@@ -756,13 +757,13 @@
 
           <section> <!-- start of Next Steps: How to make your code reusable -->
             <section data-state="standard">
-              <h2>Next steps</h2>
+              <h1>Next Steps</h1>
               How to make your code reusable
             </section>
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Add a license
+                ## Add a license
 
                 - Others cannot safely copy, modify, or distribute your work without a license
                 - Common licenses for code:
@@ -775,7 +776,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### FAIR software checklist
+                ## FAIR software checklist
 
                 - Check how much your project adheres to the FAIR principles: https://fairsoftwarechecklist.net/v0.2/
                 - Add a badge to your GitHub repository: https://github.com/fair-software/howfairis
@@ -785,7 +786,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Add a CITATION file
+                ## Add a CITATION file
 
                 - Use the cff initializer to create a CITATION.cff file for you project: https://citation-file-format.github.io/cff-initializer-javascript/#/
               </textarea>
@@ -793,7 +794,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Publish your project on Zenodo
+                ## Publish your project on Zenodo
 
                 - Link your GitHub repository to Zenodo: https://zenodo.org/login/?next=%2Faccount%2Fsettings%2Fgithub%2F
                 - When you publish a release of your project, it will be uploaded to Zenodo and a DOI is assigned to it
@@ -803,7 +804,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Publish your project on Zenodo
+                ## Publish your project on Zenodo
 
                 - The Turing Way Community. (2022). <em>Licenses</em>. Zenodo. https://zenodo.org/records/7625728
                 - List of approved licenses by Open Source Foundation: https://opensource.org/license?ls=apache
@@ -814,30 +815,39 @@
           </section> <!-- end of Next Steps: How to make your code reusable -->
 
           <section> <!-- start of Work on Your Own Project -->
-            <section data-state="standard">
-              <h2>html slides</h2>
-              <p>content</p>
-              <p>with html</p>
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                # Work On Your Own Project!
+              </textarea>
             </section>
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                # Header
+                ## Objectives
 
-                - list item
-                - another one
+                - Define your software dependencies
+                - Document your code well and write a `README.md`
+                - Apply formatting and linting
+                - Modularize your code if needed
+                  - Re-run formatting and linting
+                - Add a license
+                - Run your project through the [FAIR software checklist](https://fairsoftwarechecklist.net/v0.2/) and [create a badge](https://github.com/fair-software/howfairis) to your repo
+                - Add a [`CITATION.cff` file](https://citation-file-format.github.io/cff-initializer-javascript/#/)
+                - [Publish your project](https://zenodo.org/login/?next=%2Faccount%2Fsettings%2Fgithub%2F) to Zenodo
+
+                *You will probably not be able to finish the list. Instead, try to work on each item a bit to see which steps are involved.*
               </textarea>
             </section>
           </section> <!-- end of Work on Your Own Project -->
 
           <section> <!-- start of Reusability Check -->
             <section data-state="standard">
-              <h2>Reproducibility check</h2>
+              <h1>Reproducibility Check</h1>
             </section>
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Reproducibility check
+                ## Reproducibility check
 
                 - Share your project with one of your peers
                 - Answer the following questions:
@@ -853,7 +863,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Resources
+                ## Resources
 
                 - ReproHack: https://www.reprohack.org/
                 - CODECHECK: https://codecheck.org.uk/
@@ -864,12 +874,12 @@
 
           <section> <!-- start of Wrap-Up -->
             <section data-state="standard">
-              <h2>Wrap-up</h2>
+              <h1>Wrap-Up</h1>
             </section>
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Summary
+                ## Summary
 
                 Ingredients for reusable code:
                 - Version control
@@ -883,7 +893,7 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Next steps
+                ## Next steps
 
                 - Philosophy: Partial reproducibility > no reproducibility!
                 - Small steps: Improve practices from one project to the next
@@ -898,9 +908,9 @@
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                ### Reference and further reading
+                ## Reference and further reading
 
-                - Carptentries workshop [material](https://carpentries-incubator.github.io/reproducible-research-through-reusable-code-in-1-day/index.html) <em>Reproducible research through reusable code in 1 day</em>
+                - Carpentries workshop [material](https://carpentries-incubator.github.io/reproducible-research-through-reusable-code-in-1-day/index.html) <em>Reproducible research through reusable code in 1 day</em>
                 - The Turing Way Community. (2022). <em>The Turing Way: A handbook for reproducible, ethical and collaborative research (1.0.2)</em>. Zenodo. https://zenodo.org/records/7625728
                 
               </textarea>
