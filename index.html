@@ -464,18 +464,64 @@
           </section> <!-- end of Software Documentation -->
 
           <section> <!-- start of Code Conventions and Modular Coding -->
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                # Coding Conventions
+                ## ... and Modular Coding
+              </textarea>
+            </section>
+
             <section data-state="standard">
-              <h2>html slides</h2>
-              <p>content</p>
-              <p>with html</p>
+              <style>
+                .fragment.rotateA {
+                  transform: rotate(30deg) translateX(-150px);
+                  transition: transform 0.6s ease, opacity 0.6s ease;
+                }
+                .fragment.rotateA.visible {
+                  transform: rotate(0deg) translateX(-90px) translateY(-100px);
+                }
+                .fragment.rotateB {
+                  transform: rotate(-30deg) translateX(80px) translateY(-120px);
+                  margin-bottom: -100px;
+                  transition: transform 0.6s ease, opacity 0.6s ease;
+                }
+                .fragment.rotateB.visible {
+                  transform: rotate(0deg) translateX(0px) translateY(-120px);
+                  margin-bottom: -100px;
+                }
+              </style>
+              <h2 class="fragment custom rotateA" data-fragment-index="1">For-</h2><h2 class="fragment custom rotateB" data-fragment-index="1">matting</h2>
+              <ul>
+                <li>Follow style guides without altering functionality</li>
+                <li>Increase readability and reduce chance for merge conflicts</li>
+              </ul>
             </section>
 
             <section data-state="standard" data-markdown>
               <textarea data-template>
-                # Header
+                ## Linters
+                <img style="height: 30vh; margin: 0; padding: 0;" src="./files/Linter_logo_v2.svg">
+                <p style="font-size: small;"><a href="https://commons.wikimedia.org/wiki/File:Linter_logo_v2.svg">Image</a> by <a href="https://commons.wikimedia.org/wiki/User:Isarra">Isarra</a> under <a href="https://creativecommons.org/licenses/by/4.0/deed.en">CC BY 4.0</a></p>
 
-                - list item
-                - another one
+                - Check for errors, complexity, unused code, or performance bottlenecks
+                - More heavy-handed than formatters
+                - Can fix most issues, if requested
+
+              </textarea>
+            </section>
+
+            <section data-state="standard" data-markdown>
+              <textarea data-template>
+                ## Challenge: Improve Your Code
+
+                Install and use a formatter and a linter to improve the style of your code.
+
+
+
+                - Check for errors, complexity, unused code, or performance bottlenecks
+                - More heavy-handed than formatters
+                - Can fix most issues, if requested
+
               </textarea>
             </section>
           </section> <!-- end of Code Conventions and Modular Coding -->
@@ -683,7 +729,7 @@
       list.innerHTML += list.innerHTML;
 
       let y = 0;
-      const speed = 0.1; // px per frame
+      const speed = 0.4; // px per frame
       let loopHeight = 0;
 
       function start_scrolling() {
